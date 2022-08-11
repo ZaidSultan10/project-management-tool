@@ -1,4 +1,5 @@
 import React from 'react'
+import LeftSidebar from '../../components/leftSidebar/LeftSidebar'
 import TodosMain from '../../components/todosMain/TodosMain'
 import './_mainPage.scss'
 
@@ -6,7 +7,7 @@ const MainPage = () => {
   return (
     <div className='mainPage'>
         <div className='mainPage__left'>
-            <h1>left side having only 25%</h1>
+            <LeftSidebar />
         </div>
         <div className='mainPage__right'>
             <TodosMain />
