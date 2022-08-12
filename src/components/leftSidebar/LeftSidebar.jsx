@@ -3,7 +3,9 @@ import './_leftSidebar.scss'
 
 const LeftSidebar = () => {
   return (
-    <div>LeftSidebar</div>
+    <div className='leftSidebar'>
+      <h1>Left Side Bar</h1>
+    </div>
   )
 }
 
