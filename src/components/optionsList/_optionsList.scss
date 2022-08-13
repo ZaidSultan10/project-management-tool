@@ -1,0 +1,25 @@
+.optionsList{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-between;
+
+    &__left{
+        display: flex;
+        align-items: center;
+
+        p{
+            margin-left: 0.8rem;
+        }
+    }
+
+    &__right__count{
+        border-radius: 8px;
+        width: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(4, 187, 111, 0.716);
+    }
+
+}

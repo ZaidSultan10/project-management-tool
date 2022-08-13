@@ -1,3 +1,20 @@
 .leftSidebar{
     padding: 1rem 0;
+
+    &__heading{
+        display: flex;
+        align-items: center;
+    }
+
+    &__accountInfo{
+        margin-top: 2rem;
+    }
+
+    &__accountOptions{
+        margin-top: 2rem;
+    }
+
+    &__lineBreak{
+        margin: 2rem 0;
+    }
 }
