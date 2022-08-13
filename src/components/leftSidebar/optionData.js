@@ -1,4 +1,6 @@
-import { faUser, faChartLine } from '@fortawesome/fontawesome-free-solid'
+import { faUser, faChartLine, faList, 
+    faUserFriends, faChartBar, faCalendarAlt,
+    faCommentDots, faArrowAltCircleRight } from '@fortawesome/fontawesome-free-solid'
 
 export const optionDataTop = [{
     option:'Activity',
@@ -10,17 +12,35 @@ export const optionDataTop = [{
 
 export const optionDataPage = [{
     option:'Dashboard',
-    icon:faChartLine,
+    icon:faChartBar,
 },{
     option:'Tasks',
-    icon:faUser
+    icon:faList
 },{
     option:'Teams',
-    icon:faUser
+    icon:faUserFriends
 },{
     option:'Messages',
-    icon:faChartLine,
+    icon:faCommentDots,
 },{
     option:'Calender',
-    icon:faUser
+    icon:faCalendarAlt
+}]
+
+export const optionDataLabel = [{
+    option:'High Priority',
+    icon:faArrowAltCircleRight,
+    color:'red'
+},{
+    option:'Medium Priority',
+    icon:faArrowAltCircleRight,
+    color:'orange'
+},{
+    option:'Low Priority',
+    icon:faArrowAltCircleRight,
+    color:'yellow'
+},{
+    option:'On Standby',
+    icon:faArrowAltCircleRight,
+    color:'green'
 }]

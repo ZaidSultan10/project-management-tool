@@ -2,11 +2,11 @@ import React from 'react'
 import './_optionsList.scss'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
-const OptionsList = ({option,icon,count}) => {
+const OptionsList = ({option,icon,count, color}) => {
   return (
     <div className='optionsList'>
         <div className='optionsList__left'>
-            <FontAwesomeIcon icon={icon} />
+            <FontAwesomeIcon style={{color:color}} icon={icon} />
             <p>{option}</p>
         </div>
         <div className='optionsList__right'>

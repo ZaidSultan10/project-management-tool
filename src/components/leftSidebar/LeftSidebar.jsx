@@ -4,7 +4,9 @@ import './_leftSidebar.scss'
 import Logo from '../../assets/icon.png'
 import Profile from '../profile/Profile'
 import OptionsList from '../optionsList/OptionsList'
-import { optionDataTop, optionDataPage } from './optionData'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faChevronDown} from '@fortawesome/fontawesome-free-solid'
+import { optionDataTop, optionDataPage, optionDataLabel } from './optionData'
 
 const LeftSidebar = () => {
   return (
@@ -28,6 +30,7 @@ const LeftSidebar = () => {
       </div>
       <div className='leftSidebar__optionHeading' style={{marginBottom:'20px'}}>
           <Header title={`Pages`} fontSize={`18px`} />
+          <FontAwesomeIcon icon={faChevronDown} />
       </div>
       <div className='leftSidebar__pageOptions'>
         {
@@ -38,6 +41,17 @@ const LeftSidebar = () => {
       </div>
       <div className='leftSidebar__lineBreak'>
         <hr />
+      </div>
+      <div className='leftSidebar__optionHeading' style={{marginBottom:'20px'}}>
+          <Header title={`Labels`} fontSize={`18px`} />
+          <FontAwesomeIcon icon={faChevronDown} />
+      </div>
+      <div className='leftSidebar__labelOptions'>
+        {
+          optionDataLabel && optionDataLabel.map(item => (
+            <OptionsList option={item.option} icon={item.icon} count={3} color={item.color} />
+          ))
+        }
       </div>
     </div>
   )
