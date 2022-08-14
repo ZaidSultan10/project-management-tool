@@ -6,4 +6,10 @@
     height: 96vh;
     overflow: hidden;
     padding: 1rem;
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }

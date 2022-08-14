@@ -1,0 +1,16 @@
+.button{
+
+    button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.8rem;
+        border: none;
+        border-radius: 12px;
+
+        p{
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+}

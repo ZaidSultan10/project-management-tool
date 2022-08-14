@@ -33,7 +33,7 @@ const LeftSidebar = () => {
       <div className='leftSidebar__accountOptions'>
         {
           optionDataTop && optionDataTop.map(item => (
-            <OptionsList option={item.option} icon={item.icon} count={3} />
+            <OptionsList option={item.option} icon={item.icon} count={3} color={`gray`} />
           ))
         }
       </div>
@@ -49,7 +49,7 @@ const LeftSidebar = () => {
           <div className='leftSidebar__pageOptions'>
             {
               optionDataPage && optionDataPage.map(item => (
-                <OptionsList option={item.option} icon={item.icon} count={3} />
+                <OptionsList option={item.option} icon={item.icon} count={3} color={`gray`} />
               ))
             }
           </div>
