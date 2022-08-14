@@ -11,5 +11,25 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        &__right{
+            display: flex;
+            align-items: center;
+
+            &__search{
+                margin-right: 1rem;
+                position: relative;
+
+                input{
+                    width: 280px;
+                    border: none;
+                    outline: none;
+                    border-radius: 12px;
+                    background-color: rgba(232, 231, 231, 0.873);
+                    font-size: 18px;
+                    padding: 0.8rem 2.5rem;
+                }
+            }
+        }
     }
 }

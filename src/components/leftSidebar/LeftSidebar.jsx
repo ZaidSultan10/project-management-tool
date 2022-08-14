@@ -32,8 +32,8 @@ const LeftSidebar = () => {
       </div>
       <div className='leftSidebar__accountOptions'>
         {
-          optionDataTop && optionDataTop.map(item => (
-            <OptionsList option={item.option} icon={item.icon} count={3} color={`gray`} />
+          optionDataTop && optionDataTop.map((item,index) => (
+            <OptionsList key={index + 1} id={item.id} option={item.option} icon={item.icon} count={3} color={`gray`} />
           ))
         }
       </div>
@@ -48,8 +48,8 @@ const LeftSidebar = () => {
         !togglePageChevron && (
           <div className='leftSidebar__pageOptions'>
             {
-              optionDataPage && optionDataPage.map(item => (
-                <OptionsList option={item.option} icon={item.icon} count={3} color={`gray`} />
+              optionDataPage && optionDataPage.map((item,index) => (
+                <OptionsList key={optionDataTop.length + index + 1} id={item.id} optionsProp={optionDataPage} option={item.option} icon={item.icon} count={3} color={`gray`} />
               ))
             }
           </div>
@@ -66,8 +66,8 @@ const LeftSidebar = () => {
         !toggleLabelChevron && (
           <div className='leftSidebar__labelOptions'>
             {
-              optionDataLabel && optionDataLabel.map(item => (
-                <OptionsList option={item.option} icon={item.icon} count={3} color={item.color} />
+              optionDataLabel && optionDataLabel.map((item,index) => (
+                <OptionsList key={optionDataTop.length + optionDataPage.length + index + 1 } id={item.id} optionsProp={optionDataLabel} option={item.option} icon={item.icon} count={3} color={item.color} />
               ))
             }
           </div>
