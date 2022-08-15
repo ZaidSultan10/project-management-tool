@@ -5,33 +5,24 @@ import { useEffect } from 'react'
 
 const OptionsList = ({option,icon,count, color,id}) => {
 
-    const [selectOption,setSelectOption] = useState(false)
     const [initialSelectedOption,setInitialSelectedOption] = useState('')
-    const [theArray, setTheArray] = useState([]);
 
     const handleSelectOptionChange = () => {
-        // setInitialSelectedOption(option)
-        // if(theArray.length > 0){
-        //     setTheArray([])
-        // }
-        setTheArray([...theArray,option])
-        console.log('id -->',initialSelectedOption,'option -->',option)
+        setInitialSelectedOption(id)
+        console.log('id -->',id)
     }
 
-    // useEffect(() => {
-    //     // if(option === initialSelectedOption){
-    //     //     setSelectOption(true)
-    //     // }else{
-    //     //     setSelectOption(false)
-    //     // }
-    //     console.log('option -->',theArray)
-    // },[theArray])
+    useEffect(() => {
+        setInitialSelectedOption(3)
+    },[])
 
-    // console.log('option -->',theArray)
+    useEffect(() => {
+        console.log('initialSelectedOption -->',initialSelectedOption === id ? id : 'orange')
+    },[initialSelectedOption])
+
 
   return (
-    console.log('theArray.includes(option) -->',theArray.includes(option)),
-    <div key={id} onClick={handleSelectOptionChange} className={`optionsList ${theArray.includes(option) ? `optionsList__active` : ''}`}>
+    <div key={id} onClick={handleSelectOptionChange} className={`optionsList ${initialSelectedOption === id ? `optionsList__active` : ''}`}>
         <div className='optionsList__left'>
             <FontAwesomeIcon style={{color:color}} icon={icon} />
             <p>{option}</p>
