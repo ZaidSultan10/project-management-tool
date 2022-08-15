@@ -1,30 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './_optionsList.scss'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { useEffect } from 'react'
 
 const OptionsList = ({option,icon,count, color,id}) => {
 
-    const [initialSelectedOption,setInitialSelectedOption] = useState('')
-
-    const handleSelectOptionChange = () => {
-        setInitialSelectedOption(id)
-        console.log('id -->',id)
-    }
-
-    useEffect(() => {
-        setInitialSelectedOption(3)
-    },[])
-
-    useEffect(() => {
-        if(initialSelectedOption === id){
-            console.log('initialSelectedOption -->',option)
-        }
-    },[initialSelectedOption])
-
-
   return (
-    <div key={id} onClick={handleSelectOptionChange} className={`optionsList ${initialSelectedOption === id ? `optionsList__active` : ''}`}>
+    <div key={id} className={`optionsList`}>
         <div className='optionsList__left'>
             <FontAwesomeIcon style={{color:color}} icon={icon} />
             <p>{option}</p>

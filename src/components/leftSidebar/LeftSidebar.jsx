@@ -12,6 +12,11 @@ const LeftSidebar = () => {
 
   const [togglePageChevron, setTogglePageChevron] = useState(false)
   const [toggleLabelChevron, setToggleLabelChevron] = useState(false)
+  const [initialSelectedId,setInitialSelectedId] = useState(3)
+
+    const handleSelectOptionChange = (id) => {
+        setInitialSelectedId(id)
+    }
 
   const togglePageChev = () => {
     setTogglePageChevron(!togglePageChevron)
@@ -33,7 +38,9 @@ const LeftSidebar = () => {
       <div className='leftSidebar__accountOptions'>
         {
           optionDataTop && optionDataTop.map((item) => (
-            <OptionsList key={item.id} id={item.id} option={item.option} icon={item.icon} count={3} color={`gray`} />
+            <div onClick={() => handleSelectOptionChange(item.id)} className ={`leftSidebar__pageOptions__map ${initialSelectedId === item.id ? 'active' : ''}`}>
+              <OptionsList key={item.id} id={item.id} option={item.option} icon={item.icon} count={3} color={`gray`} />
+            </div>
           ))
         }
       </div>
@@ -49,7 +56,9 @@ const LeftSidebar = () => {
           <div className='leftSidebar__pageOptions'>
             {
               optionDataPage && optionDataPage.map((item) => (
-                <OptionsList key={item.id} id={item.id} optionsProp={optionDataPage} option={item.option} icon={item.icon} count={3} color={`gray`} />
+                <div onClick={() => handleSelectOptionChange(item.id)} className ={`leftSidebar__pageOptions__map ${initialSelectedId === item.id ? 'active' : ''}`}>
+                  <OptionsList key={item.id} id={item.id} optionsProp={optionDataPage} option={item.option} icon={item.icon} count={3} color={`gray`} />
+                </div>
               ))
             }
           </div>
@@ -67,7 +76,9 @@ const LeftSidebar = () => {
           <div className='leftSidebar__labelOptions'>
             {
               optionDataLabel && optionDataLabel.map((item) => (
-                <OptionsList key={item.id} id={item.id} optionsProp={optionDataLabel} option={item.option} icon={item.icon} count={3} color={item.color} />
+                <div onClick={() => handleSelectOptionChange(item.id)} className ={`leftSidebar__pageOptions__map ${initialSelectedId === item.id ? 'active' : ''}`}>
+                  <OptionsList key={item.id} id={item.id} optionsProp={optionDataLabel} option={item.option} icon={item.icon} count={3} color={item.color} />
+                </div>
               ))
             }
           </div>

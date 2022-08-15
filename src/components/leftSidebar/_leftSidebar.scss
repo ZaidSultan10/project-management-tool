@@ -23,4 +23,31 @@
         justify-content: space-between;
         align-items: center;
     }
+
+    &__pageOptions{
+        &__map{
+            &:hover{
+                border-radius: 12px;
+                // height: 40px;
+                padding: 2px 10px 10px 10px;
+                margin: 10px 0;
+                width: 100%;
+                background-color: rgba(54, 236, 160, 0.716);
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+    
+}
+
+.active{
+    border-radius: 12px;
+        // height: 40px;
+        padding: 2px 10px 10px 10px;
+        margin: 10px 0;
+        width: 100%;
+        background-color: rgba(54, 236, 160, 0.716);
+        cursor: pointer;
+    
 }
