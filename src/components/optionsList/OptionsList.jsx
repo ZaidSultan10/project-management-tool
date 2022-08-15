@@ -17,7 +17,9 @@ const OptionsList = ({option,icon,count, color,id}) => {
     },[])
 
     useEffect(() => {
-        console.log('initialSelectedOption -->',initialSelectedOption === id ? id : 'orange')
+        if(initialSelectedOption === id){
+            console.log('initialSelectedOption -->',option)
+        }
     },[initialSelectedOption])
 
 
