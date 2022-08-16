@@ -7,15 +7,19 @@ import OptionsList from '../optionsList/OptionsList'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faChevronDown,faChevronUp} from '@fortawesome/fontawesome-free-solid'
 import { optionDataTop, optionDataPage, optionDataLabel } from './optionData'
+import { useNavigate } from "react-router-dom";
 
 const LeftSidebar = () => {
 
   const [togglePageChevron, setTogglePageChevron] = useState(false)
   const [toggleLabelChevron, setToggleLabelChevron] = useState(false)
   const [initialSelectedId,setInitialSelectedId] = useState(3)
+  let navigate = useNavigate();
 
-    const handleSelectOptionChange = (id) => {
+    const handleSelectOptionChange = (id,option) => {
+      console.log('option -->',option)
         setInitialSelectedId(id)
+        navigate(option === 'Dashboard' ? '/' : `${option}`)
     }
 
   const togglePageChev = () => {
@@ -38,7 +42,7 @@ const LeftSidebar = () => {
       <div className='leftSidebar__accountOptions'>
         {
           optionDataTop && optionDataTop.map((item) => (
-            <div onClick={() => handleSelectOptionChange(item.id)} className ={`leftSidebar__pageOptions__map ${initialSelectedId === item.id ? 'active' : ''}`}>
+            <div onClick={() => handleSelectOptionChange(item.id,item.option)} className ={`leftSidebar__pageOptions__map ${initialSelectedId === item.id ? 'active' : ''}`}>
               <OptionsList key={item.id} id={item.id} option={item.option} icon={item.icon} count={3} color={`gray`} />
             </div>
           ))
@@ -56,7 +60,7 @@ const LeftSidebar = () => {
           <div className='leftSidebar__pageOptions'>
             {
               optionDataPage && optionDataPage.map((item) => (
-                <div onClick={() => handleSelectOptionChange(item.id)} className ={`leftSidebar__pageOptions__map ${initialSelectedId === item.id ? 'active' : ''}`}>
+                <div onClick={() => handleSelectOptionChange(item.id,item.option)} className ={`leftSidebar__pageOptions__map ${initialSelectedId === item.id ? 'active' : ''}`}>
                   <OptionsList key={item.id} id={item.id} optionsProp={optionDataPage} option={item.option} icon={item.icon} count={3} color={`gray`} />
                 </div>
               ))
@@ -76,8 +80,8 @@ const LeftSidebar = () => {
           <div className='leftSidebar__labelOptions'>
             {
               optionDataLabel && optionDataLabel.map((item) => (
-                <div onClick={() => handleSelectOptionChange(item.id)} className ={`leftSidebar__pageOptions__map ${initialSelectedId === item.id ? 'active' : ''}`}>
-                  <OptionsList key={item.id} id={item.id} optionsProp={optionDataLabel} option={item.option} icon={item.icon} count={3} color={item.color} />
+                <div onClick={() => handleSelectOptionChange(item.id,item.option)} className ={`leftSidebar__pageOptions__map ${initialSelectedId === item.id ? 'active' : ''}`}>
+                  <OptionsList key={item.id} id={item.id} option={item.option} icon={item.icon} count={3} color={item.color} />
                 </div>
               ))
             }
