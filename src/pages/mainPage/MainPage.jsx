@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Dashboard from '../../components/dashboard/Dashboard';
 import Teams from '../../components/teams/Teams';
+import Messages from '../../components/messages/Messages';
 
 const MainPage = () => {
   return (
@@ -22,6 +23,7 @@ const MainPage = () => {
               <Route path='/' element={<Dashboard />} />
               <Route path="Tasks" element={<TodosMain />} />
               <Route path='Teams' element={<Teams />} />
+              <Route path='Messages' element={<Messages />} />
             </Routes>
             {/* <TodosMain /> */}
         </div>
