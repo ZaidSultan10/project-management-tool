@@ -11,6 +11,8 @@ import Dashboard from '../../components/dashboard/Dashboard';
 import Teams from '../../components/teams/Teams';
 import Messages from '../../components/messages/Messages';
 import Calender from '../../components/calender/Calender';
+import Activity from '../../components/activity/Activity';
+import MyProfile from '../../components/myProfile/MyProfile';
 
 const MainPage = () => {
   return (
@@ -26,6 +28,8 @@ const MainPage = () => {
               <Route path='Teams' element={<Teams />} />
               <Route path='Messages' element={<Messages />} />
               <Route path='Calender' element={<Calender />} />
+              <Route path='Activity' element={<Activity />} />
+              <Route path='MyProfile' element={<MyProfile />} />
             </Routes>
             {/* <TodosMain /> */}
         </div>

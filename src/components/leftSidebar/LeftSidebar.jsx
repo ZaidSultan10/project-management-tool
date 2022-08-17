@@ -19,7 +19,7 @@ const LeftSidebar = () => {
     const handleSelectOptionChange = (id,option) => {
       console.log('option -->',option)
         setInitialSelectedId(id)
-        navigate(option === 'Dashboard' ? '/' : `${option}`)
+        navigate(option === 'Dashboard' ? '/' : option === 'My Profile' ? option?.replace(' ','') : `${option}`)
     }
 
   const togglePageChev = () => {
