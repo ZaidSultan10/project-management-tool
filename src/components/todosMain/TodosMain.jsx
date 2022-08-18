@@ -5,6 +5,8 @@ import './_todosMain.scss'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faSearch} from '@fortawesome/fontawesome-free-solid'
 import { useState } from 'react'
+import TodoFilters from './todoFilters/TodoFilters'
+import {faChevronDown,faChevronUp} from '@fortawesome/fontawesome-free-solid'
 
 const TodosMain = () => {
 
@@ -32,6 +34,19 @@ const TodosMain = () => {
               <FontAwesomeIcon onClick={handleSearchSubmit} icon={faSearch} style={{position:'absolute',left:'15px',top:'13px',color:'gray',fontSize:'18px',cursor:'pointer'}} />
             </div>
             <Button title={`Create Task`} backgroundColor={`rgba(4, 187, 111, 0.716)`} color={`white`} />
+          </div>
+        </div>
+        <div className='todosMain__filters'>
+          <div className='todosMain__filters__left'>
+            <TodoFilters leftIcon={faChevronUp} title={`Filter`} rightIcon={faChevronDown} />
+          </div>
+          <div className='todosMain__filters__right'>
+              <div className='todosMain__filters__right__sort'>
+                <TodoFilters leftIcon={faChevronUp} title={`Sort`} rightIcon={faChevronDown} />
+              </div>
+              <div className='todosMain__filters__right__group'>
+                <TodoFilters leftIcon={faChevronUp} title={`Group By`} rightIcon={faChevronDown} />
+              </div>
           </div>
         </div>
     </div>

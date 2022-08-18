@@ -32,4 +32,20 @@
             }
         }
     }
+
+    &__filters{
+        margin-top: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__right{
+            display: flex;
+            align-items: center;
+
+            &__sort{
+                margin-right: 1rem;
+            }
+        }
+    }
 }

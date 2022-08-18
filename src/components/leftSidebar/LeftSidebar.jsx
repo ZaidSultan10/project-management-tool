@@ -17,7 +17,6 @@ const LeftSidebar = () => {
   let navigate = useNavigate();
 
     const handleSelectOptionChange = (id,option) => {
-      console.log('option -->',option)
         setInitialSelectedId(id)
         navigate(option === 'Dashboard' ? '/' : option === 'My Profile' ? option?.replace(' ','') : `${option}`)
     }
