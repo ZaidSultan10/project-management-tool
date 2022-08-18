@@ -7,11 +7,11 @@ const TodoFilters = ({leftIcon,title,rightIcon}) => {
     <div className='todoFilters'>
         {leftIcon && (
             <div className='todoFilters__left'>
-                <FontAwesomeIcon color='grey' icon={leftIcon} />
+                <FontAwesomeIcon style={{fontSize:'12px'}} color='grey' icon={leftIcon} />
             </div>
         )}
         <div className='todoFilters__center'>
-            <p style={{fontWeight:'bold'}}>{title}</p>
+            <p style={{fontWeight:'bold', color:'gray'}}>{title}</p>
         </div>
         <div className='todoFilters__right'>
             <FontAwesomeIcon color='grey' icon={rightIcon} />

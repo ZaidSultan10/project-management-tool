@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faSearch} from '@fortawesome/fontawesome-free-solid'
 import { useState } from 'react'
 import TodoFilters from './todoFilters/TodoFilters'
-import {faChevronDown,faChevronUp} from '@fortawesome/fontawesome-free-solid'
+import {faChevronDown,faChevronUp,faFilter} from '@fortawesome/fontawesome-free-solid'
 
 const TodosMain = () => {
 
@@ -38,14 +38,14 @@ const TodosMain = () => {
         </div>
         <div className='todosMain__filters'>
           <div className='todosMain__filters__left'>
-            <TodoFilters leftIcon={faChevronUp} title={`Filter`} rightIcon={faChevronDown} />
+            <TodoFilters leftIcon={faFilter} title={`Filter`} rightIcon={faChevronDown} />
           </div>
           <div className='todosMain__filters__right'>
               <div className='todosMain__filters__right__sort'>
-                <TodoFilters leftIcon={faChevronUp} title={`Sort`} rightIcon={faChevronDown} />
+                <TodoFilters title={`Sort`} rightIcon={faChevronDown} />
               </div>
               <div className='todosMain__filters__right__group'>
-                <TodoFilters leftIcon={faChevronUp} title={`Group By`} rightIcon={faChevronDown} />
+                <TodoFilters title={`Group By`} rightIcon={faChevronDown} />
               </div>
           </div>
         </div>
