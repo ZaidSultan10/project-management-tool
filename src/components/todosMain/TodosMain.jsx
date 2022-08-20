@@ -7,6 +7,7 @@ import {faSearch} from '@fortawesome/fontawesome-free-solid'
 import { useState } from 'react'
 import TodoFilters from './todoFilters/TodoFilters'
 import {faChevronDown,faChevronUp,faFilter} from '@fortawesome/fontawesome-free-solid'
+import TodoMainCard from './todoMainCard/TodoMainCard'
 
 const TodosMain = () => {
 
@@ -48,6 +49,11 @@ const TodosMain = () => {
                 <TodoFilters title={`Group By`} rightIcon={faChevronDown} />
               </div>
           </div>
+        </div>
+        <div className='todosMain__statusCards'>
+          <TodoMainCard headingTitle={`To Do`} count={3} />
+          <TodoMainCard headingTitle={`In Progress`} count={3} />
+          <TodoMainCard headingTitle={`In Review`} count={3} />
         </div>
     </div>
   )
