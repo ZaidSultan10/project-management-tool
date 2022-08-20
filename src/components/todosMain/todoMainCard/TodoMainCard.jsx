@@ -3,6 +3,7 @@ import './_todoMainCard.scss'
 import Header from '../../header/Header.jsx'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEllipsisH,faPlus} from '@fortawesome/fontawesome-free-solid'
+import TodoMainTaskCard from './todoMainTaskCard/TodoMainTaskCard'
 
 const TodoMainCard = ({headingTitle, count}) => {
   return (
@@ -16,6 +17,9 @@ const TodoMainCard = ({headingTitle, count}) => {
                 <FontAwesomeIcon color='gray' icon={faPlus} />
                 <FontAwesomeIcon style={{marginLeft:'10px'}} color='gray' icon={faEllipsisH} />
             </div>
+        </div>
+        <div className='todoMainCard__center'>
+            <TodoMainTaskCard />
         </div>
         <div className='todoMainCard__footer'>
             <button>
