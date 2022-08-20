@@ -14,7 +14,7 @@ const TodoFilters = ({leftIcon,title,rightIcon}) => {
             <p style={{fontWeight:'bold', color:'gray'}}>{title}</p>
         </div>
         <div className='todoFilters__right'>
-            <FontAwesomeIcon color='grey' icon={rightIcon} />
+            <FontAwesomeIcon style={{fontSize:'12px'}} color='grey' icon={rightIcon} />
         </div>
     </div>
   )
