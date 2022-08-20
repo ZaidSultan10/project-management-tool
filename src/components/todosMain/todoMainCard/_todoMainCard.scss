@@ -28,10 +28,12 @@
     }
 
     &__center{
-        margin: 0 1rem;
+        margin: 1rem 1rem;
         background-color: white;
         border-radius: 12px;
         padding: 10px;
+        -webkit-box-shadow: 3px 3px 10px 3px #d5d5d5; 
+        box-shadow: 3px 3px 10px 3px #d5d5d5;
     }
 
     &__footer{

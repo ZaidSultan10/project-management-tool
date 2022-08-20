@@ -21,6 +21,9 @@ const TodoMainCard = ({headingTitle, count}) => {
         <div className='todoMainCard__center'>
             <TodoMainTaskCard />
         </div>
+        <div className='todoMainCard__center'>
+            <TodoMainTaskCard />
+        </div>
         <div className='todoMainCard__footer'>
             <button>
                <span>
