@@ -20,14 +20,19 @@ const TodoMainTaskCard = () => {
                 <div className='todoMainTaskCard__tags__left__item'>
                     <p>tags</p>
                 </div>
+                <div className='todoMainTaskCard__tags__left__item'>
+                    <p>tags</p>
+                </div>
             </div>
             <div className='todoMainTaskCard__tags__right'>
-                <FontAwesomeIcon icon={faArrowAltCircleRight} color='red' />
+                <FontAwesomeIcon style={{marginRight:'10px'}} icon={faArrowAltCircleRight} color='red' />
                 <p>12-09-2022</p>
             </div>
         </div>
         <div className='todoMainTaskCard__footer'>
-            <Avatar />
+            <Avatar className='todoMainTaskCard__footer__avatar' />
+            <Avatar className='todoMainTaskCard__footer__avatar' />
+            <Avatar className='todoMainTaskCard__footer__avatar' />
         </div>
     </div>
   )
