@@ -60,6 +60,11 @@
                 font-size: 16px;
                 -webkit-box-shadow: 3px 3px 10px 3px #d5d5d5; 
                 box-shadow: 3px 3px 10px 3px #d5d5d5;
+                transition: all 0.3s ease-in-out;
+
+                &:hover{
+                    background-color: rgba(54, 236, 160, 0.716);
+                }
             }
         }
 
