@@ -1,11 +1,16 @@
 import React from 'react'
 import Header from '../../header/Header'
 import './_addTodoModal.scss'
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import { DateRangePicker } from 'react-dates';
 
 const AddTodoModal = ({isEdit,
   handleTitleChange,
   handleDescChange,
-  handleTaskChange}) => {
+  handleLinkChange,
+  handleStatusChange,
+  handleTagChange}) => {
 
   let statusOption = [{
     label:'To Do',
@@ -39,7 +44,7 @@ const AddTodoModal = ({isEdit,
           <label>
               <Header title={`Task Status *`} fontSize={`16px`} />
           </label>
-          <select onChange={handleTaskChange}>
+          <select onChange={e => handleStatusChange(e)}>
             <option>{`Select`}</option>
             {
               statusOption.map((item) => (
@@ -49,6 +54,32 @@ const AddTodoModal = ({isEdit,
               ))
             }
           </select>
+        </div>
+        <div className='addTodoModal__taskLinks'>
+            <label htmlFor='taskLinkId'>
+                <Header title={`Task Link`} fontSize={`16px`} />
+            </label>
+            <input placeholder='Task Link...' className='addTodoModal__taskLink__input' id='taskLinkId' onChange={e => handleLinkChange(e)} />
+        </div>
+        <div className='addTodoModal__taskTags'>
+            <label htmlFor='taskTagsId'>
+                <Header title={`Tags (comma seperated)`} fontSize={`16px`} />
+            </label>
+            <input placeholder='Tags...' className='addTodoModal__taskTags__input' id='taskTagsId' onChange={e => handleTagChange(e)} />
+        </div>
+        <div className='addTodoModal__taskDuration'>
+            <label htmlFor='taskDurationId'>
+                <Header title={`Task Duration`} fontSize={`16px`} />
+            </label>
+            <DateRangePicker
+  // startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+  // startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+  // endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+  // endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+  // onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+  // focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+  // onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+/>
         </div>
     </div>
   )

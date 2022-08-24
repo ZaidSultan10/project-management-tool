@@ -15,11 +15,11 @@ const taskSchema = mongoose.Schema({
     ],
     createdAt: {
         type: Date,
-        default: moment().format('YYYY-MMM-DD HH:mm:ss')
+        default: moment().format('YYYY-MMM-DD hh:mm:ss')
     },
     updatedAt: {
         type: Date,
-        default: moment().format('YYYY-MMM-DD HH:mm:ss')
+        default: moment().format('YYYY-MMM-DD hh:mm:ss')
     }
 })
 

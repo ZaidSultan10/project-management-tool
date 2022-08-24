@@ -45,7 +45,7 @@ const TodoMainCard = ({headingTitle, count}) => {
     <React.Fragment>
         <Modal
         isOpen={isModalOpen}
-        onRequestClose={closeModal}
+        // onRequestClose={closeModal}
         style={customStyles}
         contentLabel="add todo modal"
         >
