@@ -45,11 +45,11 @@ const TodoMainCard = ({headingTitle, count}) => {
     <React.Fragment>
         <Modal
         isOpen={isModalOpen}
-        // onRequestClose={closeModal}
+        onRequestClose={closeModal}
         style={customStyles}
         contentLabel="add todo modal"
         >
-            <AddTodoModal handleChange={handleChange} />
+            <AddTodoModal handleChange={handleChange} closeModal = {closeModal} />
         </Modal>
         <div className='todoMainCard'>
             <div className='todoMainCard__heading'>

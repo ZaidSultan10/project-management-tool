@@ -4,13 +4,16 @@ import './_addTodoModal.scss'
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker } from 'react-dates';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faWindowClose} from '@fortawesome/fontawesome-free-solid'
 
 const AddTodoModal = ({isEdit,
   handleTitleChange,
   handleDescChange,
   handleLinkChange,
   handleStatusChange,
-  handleTagChange}) => {
+  handleTagChange,
+  closeModal}) => {
 
   let statusOption = [{
     label:'To Do',
@@ -27,6 +30,7 @@ const AddTodoModal = ({isEdit,
     <div className='addTodoModal'>
         <div className='addTodoModal__header'>
             <Header title={isEdit ? `Edit Task` : `Add Task`} fontSize={`18px`} textAlign={`center`} />
+            <FontAwesomeIcon style={{cursor:"pointer"}} icon={faWindowClose} color='gray' onClick={closeModal} />
         </div>
         <div className='addTodoModal__taskTitle'>
             <label htmlFor='taskTitleId'>
