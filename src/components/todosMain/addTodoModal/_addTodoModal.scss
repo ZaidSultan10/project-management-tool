@@ -1,6 +1,96 @@
 .addTodoModal{
 
     &__taskTitle{
-        margin-top: 1rem;
+        margin: 1rem 0;
+        width: 100%;
+
+        input{
+            margin-top: 0.5rem;
+            width: 100%;
+            outline: none;
+            border: none;
+            border-radius: 12px;
+            -webkit-box-shadow: 3px 3px 10px 3px #d5d5d5; 
+            box-shadow: 3px 3px 10px 3px #d5d5d5;
+            height: 2.5rem;
+            padding: 0.5rem;
+        }
+    }
+
+    &__taskDesc{
+        margin: 1rem 0;
+        width: 100%;
+
+        input{
+            margin-top: 0.5rem;
+            width: 100%;
+            outline: none;
+            border: none;
+            border-radius: 12px;
+            -webkit-box-shadow: 3px 3px 10px 3px #d5d5d5; 
+            box-shadow: 3px 3px 10px 3px #d5d5d5;
+            height: 2.5rem;
+            padding: 0.5rem;
+        }
+    }
+
+    &__taskStatus{
+        margin: 1rem 0;
+        width: 100%;
+
+        select{
+            margin-top: 0.5rem;
+            width: 100%;
+            // outline: none;
+            border: none;
+            border-radius: 12px;
+            -webkit-box-shadow: 3px 3px 10px 3px #d5d5d5; 
+            box-shadow: 3px 3px 10px 3px #d5d5d5;
+            height: 2.5rem;
+            padding: 0.5rem;
+        }
+    }
+
+    &__taskLinks{
+        margin: 1rem 0;
+        width: 100%;
+
+        input{
+            margin-top: 0.5rem;
+            width: 100%;
+            outline: none;
+            border: none;
+            border-radius: 12px;
+            -webkit-box-shadow: 3px 3px 10px 3px #d5d5d5; 
+            box-shadow: 3px 3px 10px 3px #d5d5d5;
+            height: 2.5rem;
+            padding: 0.5rem;
+        }
+    }
+
+    &__taskTags{
+        margin: 1rem 0;
+        width: 100%;
+
+        input{
+            margin-top: 0.5rem;
+            width: 100%;
+            outline: none;
+            border: none;
+            border-radius: 12px;
+            -webkit-box-shadow: 3px 3px 10px 3px #d5d5d5; 
+            box-shadow: 3px 3px 10px 3px #d5d5d5;
+            height: 2.5rem;
+            padding: 0.5rem;
+        }
+    }
+
+    &__taskDuration{
+        margin: 1rem 0;
+        width: 100%;
+
+        &__datePicker{
+            margin-top: 0.5rem !important;
+        }
     }
 }

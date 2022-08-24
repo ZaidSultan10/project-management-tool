@@ -69,9 +69,10 @@ const AddTodoModal = ({isEdit,
         </div>
         <div className='addTodoModal__taskDuration'>
             <label htmlFor='taskDurationId'>
-                <Header title={`Task Duration`} fontSize={`16px`} />
+                <Header title={`Task Duration *`} fontSize={`16px`} />
             </label>
             <DateRangePicker
+            className='addTodoModal__taskDuration__datePicker'
   // startDate={this.state.startDate} // momentPropTypes.momentObj or null,
   // startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
   // endDate={this.state.endDate} // momentPropTypes.momentObj or null,
