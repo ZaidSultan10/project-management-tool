@@ -47,7 +47,7 @@
         select{
             margin-top: 0.5rem;
             width: 100%;
-            // outline: none;
+            outline: none;
             border: none;
             border-radius: 12px;
             -webkit-box-shadow: 3px 3px 10px 3px #d5d5d5; 
@@ -58,7 +58,7 @@
     }
 
     &__taskLinks{
-        margin: 1rem 0;
+        margin: 1rem 0px;
         width: 100%;
 
         input{
