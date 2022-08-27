@@ -86,6 +86,11 @@ const AddTodoModal = ({isEdit,
   // onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
 />
         </div>
+        <div className='addTodoModal__taskSubmit'>
+            <button>
+              {`Submit`}
+            </button>
+        </div>
     </div>
   )
 }
