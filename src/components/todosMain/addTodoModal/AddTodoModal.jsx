@@ -75,16 +75,17 @@ const AddTodoModal = ({isEdit,
             <label htmlFor='taskDurationId'>
                 <Header title={`Task Duration *`} fontSize={`16px`} />
             </label>
-            <DateRangePicker
-            className='addTodoModal__taskDuration__datePicker'
-  // startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-  // startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-  // endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-  // endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-  // onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-  // focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-  // onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-/>
+            <div className='addTodoModal__taskDuration__datePicker'>
+              <DateRangePicker
+                // startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+                // startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+                // endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+                // endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+                // onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+                // focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                // onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+              />
+            </div>
         </div>
         <div className='addTodoModal__taskSubmit'>
             <button>
