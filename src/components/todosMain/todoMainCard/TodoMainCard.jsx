@@ -11,12 +11,6 @@ const TodoMainCard = ({headingTitle, count}) => {
 
     const [paginationCount, setPaginationCount] = useState(1)
     const [isModalOpen,setIsModalOpen] = useState(false)
-    const [taskTitle, setTaskTitle] = useState('')
-    // const [taskTitle, setTaskTitle] = useState('')
-    // const [taskTitle, setTaskTitle] = useState('')
-    // const [taskTitle, setTaskTitle] = useState('')
-    // const [taskTitle, setTaskTitle] = useState('')
-    // const [taskTitle, setTaskTitle] = useState('')
 
     const customStyles = {
         content: {
@@ -38,10 +32,6 @@ const TodoMainCard = ({headingTitle, count}) => {
         setIsModalOpen(true)
     }
 
-    const handleChange = (e) => {
-        console.log(' ee===>',e.target.value)
-    }
-
   return (
     <React.Fragment>
         <Modal
@@ -50,7 +40,9 @@ const TodoMainCard = ({headingTitle, count}) => {
         style={customStyles}
         contentLabel="add todo modal"
         >
-            <AddTodoModal handleChange={handleChange} closeModal = {closeModal} />
+            <AddTodoModal 
+                closeModal = {closeModal} 
+            />
         </Modal>
         <div className='todoMainCard'>
             <div className='todoMainCard__heading'>

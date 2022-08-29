@@ -6,14 +6,9 @@ import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker } from 'react-dates';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faWindowClose} from '@fortawesome/fontawesome-free-solid'
+import moment from 'moment';
 
-const AddTodoModal = ({isEdit,
-  handleTitleChange,
-  handleDescChange,
-  handleLinkChange,
-  handleStatusChange,
-  handleTagChange,
-  closeModal}) => {
+const AddTodoModal = ({isEdit, closeModal}) => {
 
   let statusOption = [{
     label:'To Do',
@@ -29,6 +24,18 @@ const AddTodoModal = ({isEdit,
   const [startDate, setStartDate] = React.useState();
   const [endDate, setEndDate] = React.useState();
   const [focusedInput, setFocusedInput] = React.useState();
+  const [taskTitle, setTaskTitle] = React.useState('')
+  const [taskDesc, setTaskDesc] = React.useState('')
+  const [taskStatus, setTaskStatus] = React.useState('')
+  const [taskTags, setTaskTags] = React.useState('')
+  const [taskLinks, setTaskLinks] = React.useState('')
+    
+  const handleSubmit = () => {
+    console.log('startDate ==>',moment(startDate).format('DD-MMM-YYYY hh:mm:ss'),'endDate ===>',moment(endDate).format('DD-MMM-YYYY hh:mm:ss'))
+    console.log('focusedInput ==>',focusedInput,'endDate ===>',taskTitle)
+    console.log('taskDesc ==>',taskDesc,'taskStatus ===>',taskStatus)
+    console.log('taskTags ==>',taskTags,'taskLinks ===>',taskLinks)
+  }
 
   return (
     <div className='addTodoModal'>
@@ -40,13 +47,13 @@ const AddTodoModal = ({isEdit,
             <label htmlFor='taskTitleId'>
                 <Header title={`Task Title *`} fontSize={`16px`} />
             </label>
-            <input placeholder='Task Title...' className='addTodoModal__taskTitle__input' id='taskTitleId' onChange={e => handleTitleChange(e)} />
+            <input placeholder='Task Title...' className='addTodoModal__taskTitle__input' id='taskTitleId' value={taskTitle} onChange={e => setTaskTitle(e.target.value)} />
         </div>
         <div className='addTodoModal__taskDesc'>
             <label htmlFor='taskDescId'>
                 <Header title={`Task Description *`} fontSize={`16px`} />
             </label>
-            <input placeholder='Task Description...' className='addTodoModal__taskDesc__input' id='taskDescId' onChange={e => handleDescChange(e)} />
+            <input placeholder='Task Description...' className='addTodoModal__taskDesc__input' id='taskDescId' value={taskDesc} onChange={e => setTaskDesc(e.target.value)} />
         </div>
         <div className='addTodoModal__taskDuration'>
             <label htmlFor='taskDurationId'>
@@ -71,7 +78,7 @@ const AddTodoModal = ({isEdit,
           <label>
               <Header title={`Task Status *`} fontSize={`16px`} />
           </label>
-          <select onChange={e => handleStatusChange(e)}>
+          <select onChange={e => setTaskStatus(e.target.value)} value={taskStatus}>
             <option>{`Select`}</option>
             {
               statusOption.map((item) => (
@@ -86,16 +93,16 @@ const AddTodoModal = ({isEdit,
             <label htmlFor='taskLinkId'>
                 <Header title={`Task Link`} fontSize={`16px`} />
             </label>
-            <input placeholder='Task Link...' className='addTodoModal__taskLink__input' id='taskLinkId' onChange={e => handleLinkChange(e)} />
+            <input placeholder='Task Link...' className='addTodoModal__taskLink__input' id='taskLinkId' value={taskLinks} onChange={e => setTaskLinks(e.target.value)} />
         </div>
         <div className='addTodoModal__taskTags'>
             <label htmlFor='taskTagsId'>
                 <Header title={`Tags (comma seperated)`} fontSize={`16px`} />
             </label>
-            <input placeholder='Tags...' className='addTodoModal__taskTags__input' id='taskTagsId' onChange={e => handleTagChange(e)} />
+            <input placeholder='Tags...' className='addTodoModal__taskTags__input' id='taskTagsId' value={taskTags} onChange={e => setTaskTags(e.target.value)} />
         </div>
         <div className='addTodoModal__taskSubmit'>
-            <button>
+            <button onClick={handleSubmit}>
               {`Submit`}
             </button>
         </div>
