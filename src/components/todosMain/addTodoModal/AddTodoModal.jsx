@@ -26,6 +26,10 @@ const AddTodoModal = ({isEdit,
     value:'To Be Reviewed'
   }]
 
+  const [startDate, setStartDate] = React.useState();
+  const [endDate, setEndDate] = React.useState();
+  const [focusedInput, setFocusedInput] = React.useState();
+
   return (
     <div className='addTodoModal'>
         <div className='addTodoModal__header'>
@@ -43,6 +47,25 @@ const AddTodoModal = ({isEdit,
                 <Header title={`Task Description *`} fontSize={`16px`} />
             </label>
             <input placeholder='Task Description...' className='addTodoModal__taskDesc__input' id='taskDescId' onChange={e => handleDescChange(e)} />
+        </div>
+        <div className='addTodoModal__taskDuration'>
+            <label htmlFor='taskDurationId'>
+                <Header title={`Task Duration *`} fontSize={`16px`} />
+            </label>
+            <div className='addTodoModal__taskDuration__datePicker'>
+              <DateRangePicker
+                startDate={startDate}
+                startDateId="start-date"
+                endDate={endDate}
+                endDateId="end-date"
+                onDatesChange={({ startDate, endDate }) => {
+                  setStartDate(startDate);
+                  setEndDate(endDate);
+                }}
+                focusedInput={focusedInput}
+                onFocusChange={(focusedInput) => setFocusedInput(focusedInput)}
+              />
+            </div>
         </div>
         <div className='addTodoModal__taskStatus'>
           <label>
@@ -70,22 +93,6 @@ const AddTodoModal = ({isEdit,
                 <Header title={`Tags (comma seperated)`} fontSize={`16px`} />
             </label>
             <input placeholder='Tags...' className='addTodoModal__taskTags__input' id='taskTagsId' onChange={e => handleTagChange(e)} />
-        </div>
-        <div className='addTodoModal__taskDuration'>
-            <label htmlFor='taskDurationId'>
-                <Header title={`Task Duration *`} fontSize={`16px`} />
-            </label>
-            <div className='addTodoModal__taskDuration__datePicker'>
-              <DateRangePicker
-                // startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-                // startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-                // endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-                // endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-                // onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-                // focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-                // onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-              />
-            </div>
         </div>
         <div className='addTodoModal__taskSubmit'>
             <button>

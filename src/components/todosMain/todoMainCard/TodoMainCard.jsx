@@ -25,6 +25,7 @@ const TodoMainCard = ({headingTitle, count}) => {
           right: 'auto',
           bottom: 'auto',
           marginRight: '-50%',
+          width:'600px',
           transform: 'translate(-50%, -50%)',
         },
       };
