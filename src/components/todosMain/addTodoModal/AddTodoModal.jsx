@@ -32,7 +32,7 @@ const AddTodoModal = ({isEdit, closeModal}) => {
     
   const handleSubmit = () => {
     console.log('startDate ==>',moment(startDate).format('DD-MMM-YYYY hh:mm:ss'),'endDate ===>',moment(endDate).format('DD-MMM-YYYY hh:mm:ss'))
-    console.log('focusedInput ==>',focusedInput,'endDate ===>',taskTitle)
+    console.log('focusedInput ==>',focusedInput,'taskTitle ===>',taskTitle)
     console.log('taskDesc ==>',taskDesc,'taskStatus ===>',taskStatus)
     console.log('taskTags ==>',taskTags,'taskLinks ===>',taskLinks)
   }
