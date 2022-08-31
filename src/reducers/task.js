@@ -1,15 +1,18 @@
 import {CREATE_TASK} from '../actions/types.js'
 
 let initialValue = {
-    todos: [],
+    tasks: [],
     message:'',
-    updatedTodo: []
+    updatedTask: []
 }
 
 const task = (state = initialValue, action) => {
     switch(action.type){
         case CREATE_TASK:
-            return 1
+            return {
+                ...state,
+                tasks:action.data
+            }
         default:
             return state
     }
