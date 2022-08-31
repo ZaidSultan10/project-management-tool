@@ -7,7 +7,12 @@ let initialValue = {
 }
 
 const task = (state = initialValue, action) => {
-    
+    switch(action.type){
+        case "Apple":
+            return 1
+        default:
+            return state
+    }
 }
 
 export default task
