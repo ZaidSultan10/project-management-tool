@@ -1,4 +1,4 @@
-// import {GET_ALL_TODOS,CREATE_TODO,DELETE_TODO,UPDATE_STATUS,UPDATE_TODO} from '../actions/types.js'
+import {CREATE_TASK} from '../actions/types.js'
 
 let initialValue = {
     todos: [],
@@ -8,7 +8,7 @@ let initialValue = {
 
 const task = (state = initialValue, action) => {
     switch(action.type){
-        case "Apple":
+        case CREATE_TASK:
             return 1
         default:
             return state
