@@ -66,9 +66,9 @@ const TodosMain = () => {
           </div>
         </div>
         <div className='todosMain__statusCards'>
-          <TodoMainCard tasks={todoTasks} noTask = {todoTasks && todoTasks.length > 0 ? false : true} headingTitle={`To Do`} count={3} />
-          <TodoMainCard tasks={inProgressTasks} noTask = {inProgressTasks && inProgressTasks.length > 0 ? false : true} headingTitle={`In Progress`} count={3} />
-          <TodoMainCard tasks={inReviewTasks} noTask = {inReviewTasks && inReviewTasks.length > 0 ? false : true} headingTitle={`In Review`} count={3} />
+          <TodoMainCard tasks={todoTasks} noTask = {todoTasks && todoTasks.length > 0 ? false : true} headingTitle={`To Do`} count={todoTasks && todoTasks.length > 0 ? todoTasks.length : 0} />
+          <TodoMainCard tasks={inProgressTasks} noTask = {inProgressTasks && inProgressTasks.length > 0 ? false : true} headingTitle={`In Progress`} count={inProgressTasks && inProgressTasks.length > 0 ? inProgressTasks.length : 0} />
+          <TodoMainCard tasks={inReviewTasks} noTask = {inReviewTasks && inReviewTasks.length > 0 ? false : true} headingTitle={`In Review`} count={inReviewTasks && inReviewTasks.length > 0 ? inReviewTasks.length : 0} />
         </div>
     </div>
   )
