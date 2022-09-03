@@ -63,7 +63,11 @@ const TodoMainCard = ({headingTitle, count, noTask, tasks}) => {
                 ) : (
                     tasks && tasks.length > 0 && tasks.map((item, i) => (
                         <div className='todoMainCard__center'>
-                            <TodoMainTaskCard />
+                            <TodoMainTaskCard title={item.title}
+                            desc={item.desc}
+                            duration={item.duration}
+                            endDate = {item.endDate}
+                            tags={item.tags} />
                         </div>
                     ))
                 )
