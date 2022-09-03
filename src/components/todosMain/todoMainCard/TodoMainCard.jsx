@@ -94,7 +94,7 @@ const TodoMainCard = ({headingTitle, count, noTask, tasks}) => {
                     </div>
                     <div style={{backgroundColor:'#d5d5d5',borderRadius:'50%',width:'22px',height:'22px', display:'flex',justifyContent:'center',alignItems:'center'}} className='todoMainCard__footer__right__end'>
                         <div className='todoMainCard__footer__right__end__style'>
-                            <p style={{fontSize:'10px',fontWeight:'bold',color:'gray'}}>10</p>
+                            <p style={{fontSize:'10px',fontWeight:'bold',color:'gray'}}>{Math.ceil(count > 0 ? count / 2 : 1)}</p>
                         </div>
                     </div>
                     <div className='todoMainCard__footer__right__next'>
