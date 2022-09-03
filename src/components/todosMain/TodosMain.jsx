@@ -88,7 +88,9 @@ const TodosMain = () => {
           }
           {
             inReviewTasks && inReviewTasks.length > 0 ? inReviewTasks.map((item, i) => (
-                (<TodoMainCard headingTitle={`In Review`} count={3} />)
+                (
+                  <TodoMainCard headingTitle={`In Review`} count={3} />
+                )
               ) 
             ) : (
               <TodoMainCard noTask = {true} headingTitle={`In Review`} count={3} />
