@@ -32,27 +32,49 @@ const AddTodoModal = ({isEdit, closeModal}) => {
   const [taskStatus, setTaskStatus] = React.useState('')
   const [taskTags, setTaskTags] = React.useState('')
   const [taskLinks, setTaskLinks] = React.useState('')
+  const [validationMessage, setValidationMessage] = React.useState('')
+  let validationFlag = 0
     
   const handleSubmit = async () => {
-    console.log('startDate ==>',moment(startDate).format('DD-MMM-YYYY hh:mm:ss'),'endDate ===>',moment(endDate).format('DD-MMM-YYYY hh:mm:ss'))
-    console.log('focusedInput ==>',focusedInput,'taskTitle ===>',taskTitle)
-    console.log('taskDesc ==>',taskDesc,'taskStatus ===>',taskStatus)
-    console.log('taskTags ==>',taskTags,'taskLinks ===>',taskLinks)
-    await dispatch(createTask({
-      startDate:moment(startDate).format('DD-MMM-YYYY hh:mm:ss'),
-      endDate:moment(endDate).format('DD-MMM-YYYY hh:mm:ss'),
-      title:taskTitle,
-      desc:taskDesc,
-      status:taskStatus,
-      tags:taskTags ? taskTags : '',
-      links:taskLinks.split(',').length ? taskLinks.split(',') : []
-    }))
+
+    if(startDate == null || endDate == null ||
+      taskTitle === '' || taskDesc === '' || taskStatus === ''){
+        validationFlag = 1
+      } else{
+        validationFlag = 0
+      }
+
+      if(validationFlag === 1){
+        setValidationMessage('Please fill all mandatory fields')
+        setTimeout(() => {
+          setValidationMessage('')
+        },2500)
+      }else{
+        await dispatch(createTask({
+          startDate:moment(startDate).format('DD-MMM-YYYY hh:mm:ss'),
+          endDate:moment(endDate).format('DD-MMM-YYYY hh:mm:ss'),
+          title:taskTitle,
+          desc:taskDesc,
+          status:taskStatus,
+          tags:taskTags,
+          links:taskLinks
+        }))
+        setTaskTitle('')
+        setTaskDesc('')
+        setTaskStatus('')
+        setTaskLinks('')
+        setTaskTags('')
+        closeModal()
+      }
   }
 
   return (
     <div className='addTodoModal'>
         <div className='addTodoModal__header'>
             <Header title={isEdit ? `Edit Task` : `Add Task`} fontSize={`18px`} textAlign={`center`} />
+            {
+              validationMessage && (<span style={{color:'red'}}>{validationMessage}</span>)
+            }
             <FontAwesomeIcon style={{cursor:"pointer"}} icon={faWindowClose} color='gray' onClick={closeModal} />
         </div>
         <div className='addTodoModal__taskTitle'>

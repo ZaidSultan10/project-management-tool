@@ -10,11 +10,7 @@ const taskSchema = mongoose.Schema({
     startDate:String,
     endDate:String,
     duration:String,
-    tags:[
-        {
-            tag:String
-        }
-    ],
+    tags:String,
     createdAt: {
         type: Date,
         default: moment().format('YYYY-MMM-DD hh:mm:ss')
