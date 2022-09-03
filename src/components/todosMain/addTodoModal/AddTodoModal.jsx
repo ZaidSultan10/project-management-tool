@@ -7,6 +7,8 @@ import { DateRangePicker } from 'react-dates';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faWindowClose} from '@fortawesome/fontawesome-free-solid'
 import moment from 'moment';
+import { useDispatch } from 'react-redux';
+import { createTask } from '../../../actions/task.js';
 
 const AddTodoModal = ({isEdit, closeModal}) => {
 
@@ -21,6 +23,7 @@ const AddTodoModal = ({isEdit, closeModal}) => {
     value:'To Be Reviewed'
   }]
 
+  const dispatch = useDispatch()
   const [startDate, setStartDate] = React.useState();
   const [endDate, setEndDate] = React.useState();
   const [focusedInput, setFocusedInput] = React.useState();
@@ -30,11 +33,20 @@ const AddTodoModal = ({isEdit, closeModal}) => {
   const [taskTags, setTaskTags] = React.useState('')
   const [taskLinks, setTaskLinks] = React.useState('')
     
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log('startDate ==>',moment(startDate).format('DD-MMM-YYYY hh:mm:ss'),'endDate ===>',moment(endDate).format('DD-MMM-YYYY hh:mm:ss'))
     console.log('focusedInput ==>',focusedInput,'taskTitle ===>',taskTitle)
     console.log('taskDesc ==>',taskDesc,'taskStatus ===>',taskStatus)
     console.log('taskTags ==>',taskTags,'taskLinks ===>',taskLinks)
+    await dispatch(createTask({
+      startDate:moment(startDate).format('DD-MMM-YYYY hh:mm:ss'),
+      endDate:moment(endDate).format('DD-MMM-YYYY hh:mm:ss'),
+      title:taskTitle,
+      desc:taskDesc,
+      status:taskStatus,
+      tags:taskTags ? taskTags : '',
+      links:taskLinks.split(',').length ? taskLinks.split(',') : []
+    }))
   }
 
   return (

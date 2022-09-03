@@ -7,6 +7,8 @@ const taskSchema = mongoose.Schema({
     status:String,
     image:String,
     links:String,
+    startDate:String,
+    endDate:String,
     duration:String,
     tags:[
         {

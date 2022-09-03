@@ -11,7 +11,7 @@ const task = (state = initialValue, action) => {
         case CREATE_TASK:
             return {
                 ...state,
-                tasks:action.data
+                message:action.data
             }
         default:
             return state
