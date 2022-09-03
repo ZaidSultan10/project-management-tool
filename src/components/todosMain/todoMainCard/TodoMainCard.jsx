@@ -7,7 +7,7 @@ import TodoMainTaskCard from './todoMainTaskCard/TodoMainTaskCard'
 import Modal from 'react-modal'
 import AddTodoModal from '../addTodoModal/AddTodoModal'
 
-const TodoMainCard = ({headingTitle, count, noTask}) => {
+const TodoMainCard = ({headingTitle, count, noTask, tasks}) => {
 
     const [paginationCount, setPaginationCount] = useState(1)
     const [isModalOpen,setIsModalOpen] = useState(false)
@@ -61,9 +61,11 @@ const TodoMainCard = ({headingTitle, count, noTask}) => {
                         <p>{`No tasks in this module`}</p>
                     </div>
                 ) : (
-                    <div className='todoMainCard__center'>
-                        <TodoMainTaskCard />
-                    </div>
+                    tasks && tasks.length > 0 && tasks.map((item, i) => (
+                        <div className='todoMainCard__center'>
+                            <TodoMainTaskCard />
+                        </div>
+                    ))
                 )
             }
             <div className='todoMainCard__footer'>

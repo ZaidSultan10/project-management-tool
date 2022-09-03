@@ -19,13 +19,13 @@ const TodosMain = () => {
 
   const todoTasks = tasks && tasks.filter(elem => elem.status === 'To Do')
   const inProgressTasks = tasks && tasks.filter(elem => elem.status === 'In Progress')
-  const inReviewTasks = tasks && tasks.filter(elem => elem.status === 'In Review')
-
-  console.log('todoTasks -->',todoTasks, 'inProgressTasks ==>',inProgressTasks
-  ,'inReviewTasks',inReviewTasks)
+  const inReviewTasks = tasks && tasks.filter(elem => elem.status === 'To Be Reviewed')
 
   useEffect(() => {
-    dispatch(getAllTasks)
+    const getAllTasksFunc = async () => {
+      await dispatch(getAllTasks)
+    }
+    getAllTasksFunc()
   },[dispatch])
 
   const handleSearchChange = (e) => {
@@ -66,36 +66,9 @@ const TodosMain = () => {
           </div>
         </div>
         <div className='todosMain__statusCards'>
-          {
-            todoTasks && todoTasks.length > 0 ? todoTasks.map((item,i) =>(
-                (
-                  <TodoMainCard headingTitle={`To Do`} count={3} />
-                )
-              )
-            ) : (
-              <TodoMainCard noTask = {true} headingTitle={`To Do`} count={3} />
-            )
-          }
-          {
-            inProgressTasks && inProgressTasks.length > 0 ? inProgressTasks.map((item, i) => (
-                (
-                  <TodoMainCard headingTitle={`In Progress`} count={3} />
-                )
-              )
-            ) : (
-              <TodoMainCard noTask = {true} headingTitle={`In Progress`} count={3} />
-            )
-          }
-          {
-            inReviewTasks && inReviewTasks.length > 0 ? inReviewTasks.map((item, i) => (
-                (
-                  <TodoMainCard headingTitle={`In Review`} count={3} />
-                )
-              ) 
-            ) : (
-              <TodoMainCard noTask = {true} headingTitle={`In Review`} count={3} />
-            )
-          } 
+          <TodoMainCard tasks={todoTasks} noTask = {todoTasks && todoTasks.length > 0 ? false : true} headingTitle={`To Do`} count={3} />
+          <TodoMainCard tasks={inProgressTasks} noTask = {inProgressTasks && inProgressTasks.length > 0 ? false : true} headingTitle={`In Progress`} count={3} />
+          <TodoMainCard tasks={inReviewTasks} noTask = {inReviewTasks && inReviewTasks.length > 0 ? false : true} headingTitle={`In Review`} count={3} />
         </div>
     </div>
   )
