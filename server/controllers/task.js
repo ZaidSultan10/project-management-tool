@@ -1,12 +1,36 @@
 const mongoose = require('mongoose')
 const Task = require('../models/task.js')
+const moment = require('moment')
 
 const createTask = async (req,res) => {
-    console.log('=req====>',req.body)
+    try{
+        let duration = moment.duration(moment(req.body.endDate).diff(moment(req.body.startDate)));
+        await Task.create({
+            title:req.body.title,
+            desc:req.body.desc,
+            status:req.body.status,
+            startDate:req.body.startDate,
+            endDate:req.body.endDate,
+            duration:duration.asDays(),
+            links:req.body.links ? req.body.links : '',
+            tags:req.body.tags ? req.body.tags : ''
+        })
+        return res.json({message:'Task created successfully'})
+    }catch(err){
+        console.log('err ==>',err)
+    }
+}
 
-    return res.json({message:'Task created successfully'})
+const getAllTasks = async (req,res) => {
+    try{
+        const allTasks = await Task.find()
+        return res.json(allTasks)
+    }catch(err){
+        console.log('err ==>',err)
+    }
 }
 
 module.exports={
-    createTask
+    createTask,
+    getAllTasks
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from '../button/Button'
 import Header from '../header/Header'
 import './_todosMain.scss'
@@ -8,10 +8,25 @@ import { useState } from 'react'
 import TodoFilters from './todoFilters/TodoFilters'
 import {faChevronDown,faChevronUp,faFilter} from '@fortawesome/fontawesome-free-solid'
 import TodoMainCard from './todoMainCard/TodoMainCard'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllTasks } from '../../actions/task'
 
 const TodosMain = () => {
 
   const [search,setSearch] = useState('')
+  const dispatch = useDispatch()
+  const {tasks} = useSelector(state => state?.task)
+
+  const todoTasks = tasks && tasks.filter(elem => elem.status === 'To Do')
+  const inProgressTasks = tasks && tasks.filter(elem => elem.status === 'In Progress')
+  const inReviewTasks = tasks && tasks.filter(elem => elem.status === 'In Review')
+
+  console.log('todoTasks -->',todoTasks, 'inProgressTasks ==>',inProgressTasks
+  ,'inReviewTasks',inReviewTasks)
+
+  useEffect(() => {
+    dispatch(getAllTasks)
+  },[dispatch])
 
   const handleSearchChange = (e) => {
     e.preventDefault()
@@ -51,9 +66,34 @@ const TodosMain = () => {
           </div>
         </div>
         <div className='todosMain__statusCards'>
-          <TodoMainCard headingTitle={`To Do`} count={3} />
-          <TodoMainCard headingTitle={`In Progress`} count={3} />
-          <TodoMainCard headingTitle={`In Review`} count={3} />
+          {
+            todoTasks && todoTasks.length > 0 ? todoTasks.map((item,i) =>(
+                (
+                  <TodoMainCard headingTitle={`To Do`} count={3} />
+                )
+              )
+            ) : (
+              <TodoMainCard noTask = {true} headingTitle={`To Do`} count={3} />
+            )
+          }
+          {
+            inProgressTasks && inProgressTasks.length > 0 ? inProgressTasks.map((item, i) => (
+                (
+                  <TodoMainCard headingTitle={`In Progress`} count={3} />
+                )
+              )
+            ) : (
+              <TodoMainCard noTask = {true} headingTitle={`In Progress`} count={3} />
+            )
+          }
+          {
+            inReviewTasks && inReviewTasks.length > 0 ? inReviewTasks.map((item, i) => (
+                (<TodoMainCard headingTitle={`In Review`} count={3} />)
+              ) 
+            ) : (
+              <TodoMainCard noTask = {true} headingTitle={`In Review`} count={3} />
+            )
+          } 
         </div>
     </div>
   )
