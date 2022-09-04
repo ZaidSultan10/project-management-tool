@@ -68,7 +68,8 @@ const TodoMainCard = ({headingTitle, count, noTask, tasks}) => {
                             duration={item.duration}
                             endDate = {item.endDate}
                             tags={item.tags}
-                            id={item._id} />
+                            id={item._id}
+                            setIsModalOpen={setIsModalOpen} />
                         </div>
                     ))
                 )

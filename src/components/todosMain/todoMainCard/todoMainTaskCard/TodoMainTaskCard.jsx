@@ -6,9 +6,9 @@ import {faEllipsisH,faArrowAltCircleRight} from '@fortawesome/fontawesome-free-s
 import { Avatar } from '@mui/material'
 import moment from 'moment'
 import { useDispatch } from 'react-redux'
-import {deleteTask} from '../../../../actions/task.js'
+import {deleteTask,toBeUpdated} from '../../../../actions/task.js'
 
-const TodoMainTaskCard = ({title,desc,duration,endDate,tags,id}) => {
+const TodoMainTaskCard = ({title,desc,duration,endDate,tags,id,setIsModalOpen}) => {
 
     const [toggleElipse, setToggleElipse] = useState(false)
     const dispatch = useDispatch()
@@ -22,8 +22,10 @@ const TodoMainTaskCard = ({title,desc,duration,endDate,tags,id}) => {
         setToggleElipse(false)
     }
 
-    const editTasks = () => {
+    const editTasks = async () => {
         console.log('edit id ===>',id)
+        setIsModalOpen(true)
+        await dispatch(toBeUpdated(id))
         setToggleElipse(false)
     }
 

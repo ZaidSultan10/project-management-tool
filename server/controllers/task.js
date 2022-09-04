@@ -39,8 +39,18 @@ const deleteTask = async (req,res) => {
     }
 }
 
+const toBeUpdatedContent = async (req,res) => {
+    try{
+        const selectedTask = await Task.find({"_id":mongoose.Types.ObjectId(`${req.body.id}`)})
+        return res.json(selectedTask)
+    }catch(err){
+        console.log('err ==>',err)
+    }
+}
+
 module.exports={
     createTask,
     getAllTasks,
-    deleteTask
+    deleteTask,
+    toBeUpdatedContent
 }
