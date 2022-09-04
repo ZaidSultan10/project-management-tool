@@ -30,7 +30,17 @@ const getAllTasks = async (req,res) => {
     }
 }
 
+const deleteTask = async (req,res) => {
+    try{
+        await Task.remove({"_id":mongoose.Types.ObjectId(`${req.body.id}`)})
+        return res.json({message:'Task successfully deleted'})
+    }catch(err){
+        console.log('err ==>',err)
+    }
+}
+
 module.exports={
     createTask,
-    getAllTasks
+    getAllTasks,
+    deleteTask
 }

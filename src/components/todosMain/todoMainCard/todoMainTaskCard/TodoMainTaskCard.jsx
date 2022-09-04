@@ -5,21 +5,24 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEllipsisH,faArrowAltCircleRight} from '@fortawesome/fontawesome-free-solid'
 import { Avatar } from '@mui/material'
 import moment from 'moment'
+import { useDispatch } from 'react-redux'
+import {deleteTask} from '../../../../actions/task.js'
 
 const TodoMainTaskCard = ({title,desc,duration,endDate,tags,id}) => {
 
     const [toggleElipse, setToggleElipse] = useState(false)
+    const dispatch = useDispatch()
 
     const toggleOptions = () => {
         setToggleElipse(!toggleElipse)
     }
 
-    const deleteTask = () => {
-        console.log('delete id ===>',id)
+    const deleteTasks = async () => {
+        await dispatch(deleteTask(id))
         setToggleElipse(false)
     }
 
-    const editTask = () => {
+    const editTasks = () => {
         console.log('edit id ===>',id)
         setToggleElipse(false)
     }
@@ -30,8 +33,8 @@ const TodoMainTaskCard = ({title,desc,duration,endDate,tags,id}) => {
             <Header title={title} fontSize={`16px`} />
             <FontAwesomeIcon style={{cursor:'pointer'}} onClick={toggleOptions} color='gray' icon={faEllipsisH} />
             <div style={{display:`${toggleElipse ? 'block' : 'none'}`}} className={`todoMainTaskCard__header__options`}>
-                <button onClick={deleteTask}>{`Delete`}</button>
-                <button onClick={editTask}>{`Edit`}</button>
+                <button onClick={deleteTasks}>{`Delete`}</button>
+                <button onClick={editTasks}>{`Edit`}</button>
             </div>
         </div>
         <div className='todoMainTaskCard__content'>

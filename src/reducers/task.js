@@ -1,4 +1,4 @@
-import {CREATE_TASK, GET_ALL_TASK} from '../actions/types.js'
+import {CREATE_TASK, GET_ALL_TASK, DELETE_TASK} from '../actions/types.js'
 
 let initialValue = {
     tasks: [],
@@ -18,6 +18,11 @@ const task = (state = initialValue, action) => {
                 ...state,
                 tasks:action.data,
                 message:''
+            }
+        case DELETE_TASK:
+            return {
+                ...state,
+                message:action.data
             }
         default:
             return state
