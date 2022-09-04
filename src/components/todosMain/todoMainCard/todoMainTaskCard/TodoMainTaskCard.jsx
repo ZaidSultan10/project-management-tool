@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../../../header/Header'
 import './_todoMainTaskCard.scss'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -6,12 +6,33 @@ import {faEllipsisH,faArrowAltCircleRight} from '@fortawesome/fontawesome-free-s
 import { Avatar } from '@mui/material'
 import moment from 'moment'
 
-const TodoMainTaskCard = ({title,desc,duration,endDate,tags}) => {
+const TodoMainTaskCard = ({title,desc,duration,endDate,tags,id}) => {
+
+    const [toggleElipse, setToggleElipse] = useState(false)
+
+    const toggleOptions = () => {
+        setToggleElipse(!toggleElipse)
+    }
+
+    const deleteTask = () => {
+        console.log('delete id ===>',id)
+        setToggleElipse(false)
+    }
+
+    const editTask = () => {
+        console.log('edit id ===>',id)
+        setToggleElipse(false)
+    }
+
   return (
     <div className='todoMainTaskCard'>
         <div className='todoMainTaskCard__header'>
             <Header title={title} fontSize={`16px`} />
-            <FontAwesomeIcon color='gray' icon={faEllipsisH} />
+            <FontAwesomeIcon style={{cursor:'pointer'}} onClick={toggleOptions} color='gray' icon={faEllipsisH} />
+            <div style={{display:`${toggleElipse ? 'block' : 'none'}`}} className={`todoMainTaskCard__header__options`}>
+                <button onClick={deleteTask}>{`Delete`}</button>
+                <button onClick={editTask}>{`Edit`}</button>
+            </div>
         </div>
         <div className='todoMainTaskCard__content'>
             <p>{desc}</p>
@@ -25,12 +46,6 @@ const TodoMainTaskCard = ({title,desc,duration,endDate,tags}) => {
                         </div>
                     ))
                 }
-                {/* <div className='todoMainTaskCard__tags__left__item'>
-                    <p>tags</p>
-                </div>
-                <div className='todoMainTaskCard__tags__left__item'>
-                    <p>tags</p>
-                </div> */}
             </div>
             {
                 Number(duration) >= 0 && (
