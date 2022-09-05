@@ -45,6 +45,7 @@ const TodoMainCard = ({headingTitle, count, noTask, tasks}) => {
         >
             <AddTodoModal 
                 closeModal = {closeModal} 
+                isEdit = {updatedTask && updatedTask.length > 0 ? true : false}
             />
         </Modal>
         <div className='todoMainCard'>
