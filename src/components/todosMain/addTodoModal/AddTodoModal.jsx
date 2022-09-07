@@ -10,7 +10,7 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { createTask } from '../../../actions/task.js';
 
-const AddTodoModal = ({isEdit, closeModal}) => {
+const AddTodoModal = ({isEdit, closeModal,updatedTask}) => {
 
   let statusOption = [{
     label:'To Do',
@@ -81,13 +81,13 @@ const AddTodoModal = ({isEdit, closeModal}) => {
             <label htmlFor='taskTitleId'>
                 <Header title={`Task Title *`} fontSize={`16px`} />
             </label>
-            <input placeholder='Task Title...' className='addTodoModal__taskTitle__input' id='taskTitleId' value={taskTitle} onChange={e => setTaskTitle(e.target.value)} />
+            <input placeholder='Task Title...' className='addTodoModal__taskTitle__input' id='taskTitleId' value={ updatedTask && updatedTask.length > 0 ? updatedTask[0]?.title : taskTitle} onChange={e => setTaskTitle(e.target.value)} />
         </div>
         <div className='addTodoModal__taskDesc'>
             <label htmlFor='taskDescId'>
                 <Header title={`Task Description *`} fontSize={`16px`} />
             </label>
-            <input placeholder='Task Description...' className='addTodoModal__taskDesc__input' id='taskDescId' value={taskDesc} onChange={e => setTaskDesc(e.target.value)} />
+            <input placeholder='Task Description...' className='addTodoModal__taskDesc__input' id='taskDescId' value={updatedTask && updatedTask.length > 0 ? updatedTask[0]?.desc : taskDesc} onChange={e => setTaskDesc(e.target.value)} />
         </div>
         <div className='addTodoModal__taskDuration'>
             <label htmlFor='taskDurationId'>
@@ -95,9 +95,9 @@ const AddTodoModal = ({isEdit, closeModal}) => {
             </label>
             <div className='addTodoModal__taskDuration__datePicker'>
               <DateRangePicker
-                startDate={startDate}
+                startDate={updatedTask && updatedTask.length > 0 ? moment(updatedTask[0]?.startDate) : startDate}
                 startDateId="start-date"
-                endDate={endDate}
+                endDate={updatedTask && updatedTask.length > 0 ? moment(updatedTask[0]?.endDate) : endDate}
                 endDateId="end-date"
                 onDatesChange={({ startDate, endDate }) => {
                   setStartDate(startDate);
@@ -112,7 +112,7 @@ const AddTodoModal = ({isEdit, closeModal}) => {
           <label>
               <Header title={`Task Status *`} fontSize={`16px`} />
           </label>
-          <select onChange={e => setTaskStatus(e.target.value)} value={taskStatus}>
+          <select onChange={e => setTaskStatus(e.target.value)} value={updatedTask && updatedTask.length > 0 ? updatedTask[0]?.status : taskStatus}>
             <option>{`Select`}</option>
             {
               statusOption.map((item) => (
@@ -127,13 +127,13 @@ const AddTodoModal = ({isEdit, closeModal}) => {
             <label htmlFor='taskLinkId'>
                 <Header title={`Task Link`} fontSize={`16px`} />
             </label>
-            <input placeholder='Task Link...' className='addTodoModal__taskLink__input' id='taskLinkId' value={taskLinks} onChange={e => setTaskLinks(e.target.value)} />
+            <input placeholder='Task Link...' className='addTodoModal__taskLink__input' id='taskLinkId' value={updatedTask && updatedTask.length > 0 ? updatedTask[0]?.links : taskLinks} onChange={e => setTaskLinks(e.target.value)} />
         </div>
         <div className='addTodoModal__taskTags'>
             <label htmlFor='taskTagsId'>
                 <Header title={`Tags (comma seperated)`} fontSize={`16px`} />
             </label>
-            <input placeholder='Tags...' className='addTodoModal__taskTags__input' id='taskTagsId' value={taskTags} onChange={e => setTaskTags(e.target.value)} />
+            <input placeholder='Tags...' className='addTodoModal__taskTags__input' id='taskTagsId' value={updatedTask && updatedTask.length > 0 ? updatedTask[0]?.tags : taskTags} onChange={e => setTaskTags(e.target.value)} />
         </div>
         <div className='addTodoModal__taskSubmit'>
             <button onClick={handleSubmit}>

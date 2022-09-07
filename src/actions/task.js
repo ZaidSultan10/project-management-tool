@@ -1,4 +1,4 @@
-import { CREATE_TASK, GET_ALL_TASK, DELETE_TASK, TO_BE_UPDATED } from "./types";
+import { CREATE_TASK, GET_ALL_TASK, DELETE_TASK, TO_BE_UPDATED,CLEAR_FORM } from "./types";
 import axios from 'axios'
 
 
@@ -36,5 +36,13 @@ export const toBeUpdated = (task) => async(dispatch) => {
         dispatch({type:TO_BE_UPDATED,data:data})
     }catch(err){
         console.log('err ===>',err)
+    }
+}
+
+export const clearForm = async(dispatch) =>{
+    try{
+        dispatch({type:CLEAR_FORM,data:[]})
+    }catch(err){
+        console.log('err =>',err)
     }
 }

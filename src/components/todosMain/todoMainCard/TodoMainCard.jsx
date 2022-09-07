@@ -6,12 +6,14 @@ import {faEllipsisH,faPlus,faChevronCircleLeft,faChevronCircleRight} from '@fort
 import TodoMainTaskCard from './todoMainTaskCard/TodoMainTaskCard'
 import Modal from 'react-modal'
 import AddTodoModal from '../addTodoModal/AddTodoModal'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import {clearForm} from '../../../actions/task.js'
 
 const TodoMainCard = ({headingTitle, count, noTask, tasks}) => {
 
     const [paginationCount, setPaginationCount] = useState(1)
     const [isModalOpen,setIsModalOpen] = useState(false)
+    const dispatch = useDispatch()
 
     const {updatedTask} = useSelector(state => state?.task)
 
@@ -31,8 +33,9 @@ const TodoMainCard = ({headingTitle, count, noTask, tasks}) => {
         setIsModalOpen(false)
     }
 
-    const openModal = () => {
+    const openModal = async () => {
         setIsModalOpen(true)
+        await dispatch(clearForm)
     }
 
   return (
@@ -45,7 +48,8 @@ const TodoMainCard = ({headingTitle, count, noTask, tasks}) => {
         >
             <AddTodoModal 
                 closeModal = {closeModal} 
-                // isEdit = {updatedTask && updatedTask.length > 0 ? true : false}
+                isEdit = {updatedTask && updatedTask.length > 0 ? true : false}
+                updatedTask={updatedTask && updatedTask.length > 0 ? updatedTask : []}
             />
         </Modal>
         <div className='todoMainCard'>
