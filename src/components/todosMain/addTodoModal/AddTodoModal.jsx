@@ -133,7 +133,7 @@ const AddTodoModal = ({isEdit, closeModal,updatedTask}) => {
             <label htmlFor='taskTagsId'>
                 <Header title={`Tags (comma seperated)`} fontSize={`16px`} />
             </label>
-            <input placeholder='Tags...' className='addTodoModal__taskTags__input' id='taskTagsId' value={updatedTask && updatedTask.length > 0 ? updatedTask[0]?.tags : taskTags} onChange={e => setTaskTags(e.target.value)} />
+            <input placeholder='Tags....' className='addTodoModal__taskTags__input' id='taskTagsId' value={updatedTask && updatedTask.length > 0 ? updatedTask[0]?.tags : taskTags} onChange={e => setTaskTags(e.target.value)} />
         </div>
         <div className='addTodoModal__taskSubmit'>
             <button onClick={handleSubmit}>
