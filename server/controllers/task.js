@@ -50,7 +50,7 @@ const toBeUpdatedContent = async (req,res) => {
 
 const updatedTask = async (req,res) => {
     try{
-        console.log('req update ==>',req.body)
+        console.log('req updateeee ==>',req.body)
     }catch(err){
         console.log('err ==>',err)
     }
