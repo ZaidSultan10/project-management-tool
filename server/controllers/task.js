@@ -60,5 +60,6 @@ module.exports={
     createTask,
     getAllTasks,
     deleteTask,
-    toBeUpdatedContent
+    toBeUpdatedContent,
+    updatedTask
 }

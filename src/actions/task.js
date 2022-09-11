@@ -1,4 +1,4 @@
-import { CREATE_TASK, GET_ALL_TASK, DELETE_TASK, TO_BE_UPDATED,CLEAR_FORM } from "./types";
+import { CREATE_TASK, GET_ALL_TASK, DELETE_TASK, TO_BE_UPDATED,CLEAR_FORM, UPDATE_TASK } from "./types";
 import axios from 'axios'
 
 
@@ -44,5 +44,14 @@ export const clearForm = async(dispatch) =>{
         dispatch({type:CLEAR_FORM,data:[]})
     }catch(err){
         console.log('err =>',err)
+    }
+}
+
+export const updateTask = (task) => async(dispatch) => {
+    try{
+        const {data} = await axios.post(`http://localhost:5000/task/updateTask/${task.id}`,task)
+        dispatch({type:UPDATE_TASK,data:data})
+    }catch(err){
+        console.log('err ===>',err)
     }
 }

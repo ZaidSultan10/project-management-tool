@@ -8,7 +8,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faWindowClose} from '@fortawesome/fontawesome-free-solid'
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
-import { createTask } from '../../../actions/task.js';
+import { createTask,updateTask } from '../../../actions/task.js';
 
 const AddTodoModal = ({isEdit, closeModal,updatedTask}) => {
 
@@ -50,15 +50,27 @@ const AddTodoModal = ({isEdit, closeModal,updatedTask}) => {
           setValidationMessage('')
         },2500)
       }else{
-        await dispatch(createTask({
-          startDate:moment(startDate).format('DD-MMM-YYYY hh:mm:ss'),
-          endDate:moment(endDate).format('DD-MMM-YYYY hh:mm:ss'),
-          title:taskTitle,
-          desc:taskDesc,
-          status:taskStatus,
-          tags:taskTags,
-          links:taskLinks
-        }))
+        updatedTask && updatedTask.length > 0 ? 
+          await dispatch(updateTask({
+            id:updatedTask[0]._id,
+            startDate:moment(startDate).format('DD-MMM-YYYY hh:mm:ss'),
+            endDate:moment(endDate).format('DD-MMM-YYYY hh:mm:ss'),
+            title:taskTitle,
+            desc:taskDesc,
+            status:taskStatus,
+            tags:taskTags,
+            links:taskLinks
+          }))
+        :
+          await dispatch(createTask({
+            startDate:moment(startDate).format('DD-MMM-YYYY hh:mm:ss'),
+            endDate:moment(endDate).format('DD-MMM-YYYY hh:mm:ss'),
+            title:taskTitle,
+            desc:taskDesc,
+            status:taskStatus,
+            tags:taskTags,
+            links:taskLinks
+          }))
         setTaskTitle('')
         setTaskDesc('')
         setTaskStatus('')
