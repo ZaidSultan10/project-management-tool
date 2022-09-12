@@ -50,7 +50,7 @@ export const clearForm = async(dispatch) =>{
 export const updateTask = (task) => async(dispatch) => {
     try{
         const {data} = await axios.post(`http://localhost:5000/task/updateTask/${task.id}`,task)
-        dispatch({type:UPDATE_TASK,data:data})
+        dispatch({type:UPDATE_TASK,data:data.message})
     }catch(err){
         console.log('err ===>',err)
     }

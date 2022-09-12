@@ -51,6 +51,7 @@ const toBeUpdatedContent = async (req,res) => {
 const updatedTask = async (req,res) => {
     try{
         console.log('req updateeee ==>',req.body)
+        return res.json({message:'Task Updated Successfully'})
     }catch(err){
         console.log('err ==>',err)
     }
