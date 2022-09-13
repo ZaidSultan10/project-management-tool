@@ -95,19 +95,19 @@ const AddTodoModal = ({isEdit, closeModal,updatedTask}) => {
         </div>
         <div className='addTodoModal__taskTitle'>
             <label htmlFor='taskTitleId'>
-                <Header title={`Task Title *`} fontSize={`16px`} />
+                <Header title={`Task Title ${isEdit ? '' : '*'}`} fontSize={`16px`} />
             </label>
             <input placeholder='Task Title...' className='addTodoModal__taskTitle__input' id='taskTitleId' value={ taskTitle || updatedTask[0]?.title} onChange={e => setTaskTitle(e.target.value)} />
         </div>
         <div className='addTodoModal__taskDesc'>
             <label htmlFor='taskDescId'>
-                <Header title={`Task Description *`} fontSize={`16px`} />
+                <Header title={`Task Description ${isEdit ? '' : '*'}`} fontSize={`16px`} />
             </label>
             <input placeholder='Task Description...' className='addTodoModal__taskDesc__input' id='taskDescId' value={ taskDesc || updatedTask[0]?.desc} onChange={e => setTaskDesc(e.target.value)} />
         </div>
         <div className='addTodoModal__taskDuration'>
             <label htmlFor='taskDurationId'>
-                <Header title={`Task Duration *`} fontSize={`16px`} />
+                <Header title={`Task Duration ${isEdit ? '' : '*'}`} fontSize={`16px`} />
             </label>
             <div className='addTodoModal__taskDuration__datePicker'>
               <DateRangePicker
@@ -126,7 +126,7 @@ const AddTodoModal = ({isEdit, closeModal,updatedTask}) => {
         </div>
         <div className='addTodoModal__taskStatus'>
           <label>
-              <Header title={`Task Status *`} fontSize={`16px`} />
+              <Header title={`Task Status ${isEdit ? '' : '*'}`} fontSize={`16px`} />
           </label>
           <select onChange={e => setTaskStatus(e.target.value)} value={ taskStatus || updatedTask[0]?.status}>
             <option>{`Select`}</option>

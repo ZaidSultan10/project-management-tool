@@ -50,7 +50,15 @@ const toBeUpdatedContent = async (req,res) => {
 
 const updatedTask = async (req,res) => {
     try{
-        console.log('req updateeee ==>',req.body)
+        await Task.findOneAndUpdate({_id:mongoose.Types.ObjectId(`${req.body.id}`)},{
+            title:req.body.title,
+            desc:req.body.desc,
+            startDate:req.body.startDate,
+            endDate:req.body.endDate,
+            status:req.body.status,
+            tags:req.body.tags,
+            links:req.body.links
+        },{raw:true})
         return res.json({message:'Task Updated Successfully'})
     }catch(err){
         console.log('err ==>',err)
