@@ -34,7 +34,7 @@ const TodosMain = () => {
   }
 
   const handleSearchSubmit =() => {
-    console.log('search--->',search)
+    console.log('search...--->',search)
     setSearch('')
   }
 
