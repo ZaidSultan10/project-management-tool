@@ -90,27 +90,31 @@ const TodoMainCard = ({headingTitle, count, noTask, tasks}) => {
                         </span> {`Add Task`}
                     </button>
                 </div>
-                <div className='todoMainCard__footer__right'>
-                    <div className='todoMainCard__footer__right__prev'>
-                        <FontAwesomeIcon color='#d5d5d5' style={{fontSize:'22px'}} icon={faChevronCircleLeft} />
-                    </div>
-                    <div className='todoMainCard__footer__right__start'>
-                        <div style={{backgroundColor:'#d5d5d5',borderRadius:'50%',width:'22px',height:'22px', display:'flex',justifyContent:'center',alignItems:'center'}} className='todoMainCard__footer__right__start__style'>
-                            <p style={{fontSize:'10px',fontWeight:'bold',color:'gray'}}>{paginationCount}</p>
+                {
+                    count > 0 && (
+                        <div className='todoMainCard__footer__right'>
+                            <div className='todoMainCard__footer__right__prev'>
+                                <FontAwesomeIcon color='#d5d5d5' style={{fontSize:'22px'}} icon={faChevronCircleLeft} />
+                            </div>
+                            <div className='todoMainCard__footer__right__start'>
+                                <div style={{backgroundColor:'#d5d5d5',borderRadius:'50%',width:'22px',height:'22px', display:'flex',justifyContent:'center',alignItems:'center'}} className='todoMainCard__footer__right__start__style'>
+                                    <p style={{fontSize:'10px',fontWeight:'bold',color:'gray'}}>{paginationCount}</p>
+                                </div>
+                            </div>
+                            <div className='todoMainCard__footer__right__truncate'>
+                                <h3>{`. . .`}</h3>
+                            </div>
+                            <div style={{backgroundColor:'#d5d5d5',borderRadius:'50%',width:'22px',height:'22px', display:'flex',justifyContent:'center',alignItems:'center'}} className='todoMainCard__footer__right__end'>
+                                <div className='todoMainCard__footer__right__end__style'>
+                                    <p style={{fontSize:'10px',fontWeight:'bold',color:'gray'}}>{Math.ceil(count > 0 ? count / 2 : 1)}</p>
+                                </div>
+                            </div>
+                            <div className='todoMainCard__footer__right__next'>
+                                <FontAwesomeIcon color='#d5d5d5' style={{fontSize:'22px'}} icon={faChevronCircleRight} />
+                            </div>
                         </div>
-                    </div>
-                    <div className='todoMainCard__footer__right__truncate'>
-                        <h3>{`. . .`}</h3>
-                    </div>
-                    <div style={{backgroundColor:'#d5d5d5',borderRadius:'50%',width:'22px',height:'22px', display:'flex',justifyContent:'center',alignItems:'center'}} className='todoMainCard__footer__right__end'>
-                        <div className='todoMainCard__footer__right__end__style'>
-                            <p style={{fontSize:'10px',fontWeight:'bold',color:'gray'}}>{Math.ceil(count > 0 ? count / 2 : 1)}</p>
-                        </div>
-                    </div>
-                    <div className='todoMainCard__footer__right__next'>
-                        <FontAwesomeIcon color='#d5d5d5' style={{fontSize:'22px'}} icon={faChevronCircleRight} />
-                    </div>
-                </div>
+                    )
+                }
             </div>
         </div>
     </React.Fragment>
